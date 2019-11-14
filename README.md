@@ -128,6 +128,9 @@ Push the image to the image registry
 
 `docker-compose push`
 
+Image will be availabe in docker registry as:
+
+![Screenshot](dockerhub_repo.png)
 
 ### Enhancement Production Readiness
 
