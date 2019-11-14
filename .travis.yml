@@ -28,6 +28,7 @@ jobs:
         - export imageName="aparnamane/app-version-info:$(git rev-parse --short HEAD | cut -c1-11)"
         - docker run -d --name=application_version_info -p 5000:5000 ${imageName}
         - docker ps
+        - sleep 15
         - docker exec application_version_info curl -i http://0.0.0.0:5000/application-version-info/api/v1.0/version
     - stage: "Push"
       script:
