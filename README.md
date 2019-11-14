@@ -130,7 +130,7 @@ Push the image to the image registry
 
 Image will be availabe in docker registry as:
 
-![Screenshot](dockerhub_repo.png)
+![Screenshot](dockerhub.png)
 
 ### Enhancement Production Readiness
 
