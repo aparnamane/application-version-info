@@ -17,4 +17,9 @@ This application is written in Python utilising python version 3.8.0.
 
 ### Docker Image Build
 
-This image uses python:alpine as base image for thin size
+This image uses python:alpine as base image for thin size and install requird packages along with copying application code. 
+Dockerfile is [here](Dockerfile).
+
+Stages:
+
+- 
