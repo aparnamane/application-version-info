@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  application-version-info:
+    env_file:
+      - .env
+    build: ./
+    environment:
+      - LAST_COMMIT_SHA=${LAST_COMMIT_SHA}
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 5000:80
+    image: aparnamane/app-version-info:${LAST_COMMIT_SHA}
