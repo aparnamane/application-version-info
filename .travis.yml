@@ -20,3 +20,12 @@ jobs:
         - DOCKER_HOST=127.0.0.1:5000
         - echo "LAST_COMMIT_SHA=$(git rev-parse --short HEAD | cut -c1-11)" > .env
         - docker-compose build
+    - stage: "Test"
+      script:
+        - DOCKER_HOST=127.0.0.1:5000
+        - echo "LAST_COMMIT_SHA=$(git rev-parse --short HEAD | cut -c1-11)" > .env
+        - docker-compose build
+        - export imageName="aparnamane/app-info-service:$(git rev-parse --short HEAD | cut -c1-11)"
+        - docker run -d --name=application_version_info -p 5000:5000 ${imageName}
+        - docker ps
+        - docker exec application_version_info curl -i http://0.0.0.0:5000/application-version-info/api/v1.0/version
