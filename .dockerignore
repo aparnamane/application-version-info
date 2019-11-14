@@ -1,0 +1,6 @@
+# Ignore these files
+README.md
+.git
+.gitignore
+Dockerfile
+.dockerignore

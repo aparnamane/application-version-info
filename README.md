@@ -7,4 +7,5 @@
 
 ## Introduction
 
-This repository builds the python containerised application which provides detailed information about the versioning of the application.
+This repository builds the python containerised application which provides detailed 
+information about the versioning of the application.
