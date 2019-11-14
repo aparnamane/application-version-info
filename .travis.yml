@@ -6,3 +6,17 @@ services:
 before_script: pip install docker-compose
 script:
   - docker-compose run application_version_info sh -c "python app.py test && flake8"
+
+stages:
+  - Build
+  - Test
+  - name: Push
+    if: branch = master
+
+jobs:
+  include:
+    - stage: "Build"
+      script:
+        - DOCKER_HOST=127.0.0.1:5000
+        - echo "LAST_COMMIT_SHA=$(git rev-parse --short HEAD | cut -c1-11)" > .env
+        - docker-compose build
