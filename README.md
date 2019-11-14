@@ -7,5 +7,9 @@
 
 ## Introduction
 
-This repository builds the python containerised application which provides detailed 
-information about the versioning of the application.
+This repository builds containerised application as a single deployable artifact along with all the dependencies.
+This simple application provides detailed versioning information. 
+
+### Python3
+
+This application is written in Python utilising python version 3.8.0.
