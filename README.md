@@ -13,6 +13,7 @@
     - [Build](#build)
     - [Test](#test)
     - [Push](#push)
+  - [Enhancement/Production Readiness](#enhancement/production-Readiness)
 
 ## Introduction
 
@@ -25,7 +26,7 @@ This application is written in Python utilising python version 3.8.0.
 
 ### Docker Image Build
 
-This image uses python:alpine as base image for thin size and install requird packages along with copying application code. 
+This image uses python:alpine as base image for thin size and install required packages along with copying application code. 
 Dockerfile is [here](Dockerfile).
 
 Image Build:
@@ -41,15 +42,15 @@ TravisCI pipeline is [here] `.travis.yml` file [here](.travis.yml) which conatin
 - Build: Build the containerised application image and will run for all the branches
 - Test: This will test by hitting API endpoint to get expected results in JSON   format and also stage will run for all the branches.
 - Push: Once the Test stage is completed successfully Push stage will run to push the final image to docker repository. This stage will run for only `master` branch.
-`This stage need to access docker repository to push the image, so need to set docker login credientials as environment variables.`
+`This stage need to access docker repository to push the image, so need to set docker login credentials as environment variables.`
 
 ### GitHub
 
-All the application code along with CI pipeline sits in GitHub repo which will allow TravisCI to auto build for each and evry commit.
+All the application code along with CI pipeline sits in GitHub repo which will allow TravisCI to auto build for each and every commit.
 
 ## Build with TravisCI
 
-- Login to `https://travis-ci.com` with GitHub login details and from settings alclick to `Manage repositories on GitHub` and select the repository to Approve and Install TravisCI.
+- Login to `https://travis-ci.com` with GitHub login details and from settings a lclick to `Manage repositories on GitHub` and select the repository to Approve and Install TravisCI.
 - Once the TravisCI is installed for the repository, it will build for every push commit by running all stages in pipeline [here] `.travis.yml`.
 
 ## Build Locally
@@ -69,7 +70,7 @@ Clone the git repo locally.
 
 `git clone git@github.com:aparnamane/application-version-info.git`
 
-Change dirctory to the application directory
+Change directory to the application directory
 
 `cd application-version-info`
 
@@ -79,7 +80,7 @@ Build the image
 
 This will build the application image with `aparnamane/app-version-info:abc57858585` tag.
 
-`As in the above command commit SHA is the static value from the `.env` file while running locally, but when run by TRavisCI the file will be overwrite the commit SHA with actual last git commit SHA.`
+`As in the above command commit SHA is the static value from the `.env` file while running locally, but when run by TravisCI the file will be overwrite the commit SHA with actual last git commit SHA.`
 
 ## Test
 
@@ -95,7 +96,7 @@ Test the application with API call using `curl`
 
 `docker exec aplication_version_info curl -i http://0.0.0.0:5000/application-version-info/api/v1.0/version`
 
-This should get respose in JSON format as:
+This should get response in JSON format as:
 
 ``` 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -126,5 +127,18 @@ Login to docker registry before pushing the image.
 Push the image to the image registry
 
 `docker-compose push`
+
+
+### Enhancement/Production Readiness
+
+To deploy the application in production/production like environment following statergies need to be considered.
+
+- Use certified image by security team.
+- Branching statergy need to implement.
+- Deployment statergy need implement.
+- Use third party tools for authentication, identity management.
+- CI/CD tool should be managed internally.
+- User should provided limited/previlaged access for all tools.
+- Aplication packages and images should be saved and extracted from private repositories.
 
 
