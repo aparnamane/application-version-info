@@ -129,7 +129,7 @@ Push the image to the image registry
 `docker-compose push`
 
 
-### Enhancement/Production Readiness
+### Enhancement Production Readiness
 
 To deploy the application in production/production like environment following statergies need to be considered.
 
