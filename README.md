@@ -119,6 +119,12 @@ Date: Thu, 14 Nov 2019 04:40:48 GMT
 
 ```
 
+## Push
 
+Login to docker registry before pushing the image.
+
+Push the image to the image registry
+
+`docker-compose push`
 
 
